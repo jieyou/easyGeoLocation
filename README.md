@@ -20,16 +20,27 @@ A library that optimizes and encapsulates native HTML5 geolocation JavaScript co
 
 {
     states:0,1,2,3 //本次结果，0:成功，1:没有权限(即用户禁止);2:无法确定位置;3:确定位置超时
+
     ,timestamp:130000000	//得到信息时的时间戳，定位失败时为null
+
     ,location:{ //位置信息，没有对应信息时为null
+
         accuracy: 1000 //位置信息精确度，单位：米
+
         ,point:{ //位置信息坐标
+
             latitude:111.1111111
+
             ,longitude:111.1111111
+
         }
+
     }
+
     ,speed:123 //速度，单位：米/秒，没有对应信息时为null
+
     ,heading:90 //前进方向，单位：距正北方向顺时针旋转的弧度，没有对应信息时为null
+    
 }
 
 
