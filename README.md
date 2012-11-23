@@ -11,6 +11,7 @@ A library that optimizes and encapsulates native HTML5 geolocation JavaScript co
 简体中文使用文档（v1.0）
 
 综述
+
 提供的方法是静态的，没有构造函数，不需要实例化。为了陈述方便和与原生的方法区别，我们所封装的easyGeoLocation的L为大写。
 
 使用链式调用通常会使编码简便。为此，此类的各个方法都会返回这个类本身，以便支持链式调用。即：可以通过在easyGeoLocation之后使用点号（.）链式访问各方法，如easyGeoLocation.getLocation(callbackFunction).watchHeading(callbackFunction,timeout)。
