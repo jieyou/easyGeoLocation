@@ -17,6 +17,7 @@ A library that optimizes and encapsulates native HTML5 geolocation JavaScript co
 使用链式调用通常会使编码简便。为此，此类的各个方法都会返回这个类本身，以便支持链式调用。即：可以通过在easyGeoLocation之后使用点号（.）链式访问各方法，如easyGeoLocation.getLocation(callbackFunction).watchHeading(callbackFunction,timeout)。
 
 所有的callbackFunction的第一个参数是一个geoInfo对象，它包含了本次获取的信息。需要注意的是，获取某一类型信息的回调函数的geoInfo是会包含该类信息，有可能包含其它类型的信息。如，getSpeed方法的回调函数的这个参数一定会包含speed信息，有可能会包含heading信息（如果此时也同时获得了heading信息则会包含）。这个对象的结构如下：
+
 {
     states:0,1,2,3 //本次结果，0:成功，1:没有权限(即用户禁止);2:无法确定位置;3:确定位置超时
     ,timestamp:130000000	//得到信息时的时间戳，定位失败时为null
