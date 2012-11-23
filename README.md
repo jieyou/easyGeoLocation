@@ -34,17 +34,31 @@ A library that optimizes and encapsulates native HTML5 geolocation JavaScript co
 静态方法
 
 setConfig(config:Object)	设置参数，参数的格式与意义与HTML5的geolocation.getCurrentPosition方法和geolocation.watchPosition方法所需的第三个参数的格式相同，具体请参阅：http://dev.w3.org/geo/api/ 。 通常情况下，用户不需要特意设置，保持默认即可。 设置是及时生效的，即在调用该方法设置后，所有新的get方法和正在进行中的watch方法都会按照新参数的设定回调。
-getAvailableCode(callbackFunction:Function)	 通过配置回调函数的形式，获取浏览器和用户对你的站点的定位请求的支持程度。 回调函数有一个参数(availableCode:Number)，数字对应意义如下： 0:浏览器支持且用户允许； 1:浏览器支持，但由于用户禁止而不可用； 10:浏览器不支持。
+
+getAvailableCode(callbackFunction:Function)	通过配置回调函数的形式，获取浏览器和用户对你的站点的定位请求的支持程度。 回调函数有一个参数(availableCode:Number)，数字对应意义如下： 0:浏览器支持且用户允许； 1:浏览器支持，但由于用户禁止而不可用； 10:浏览器不支持。
+
 getLocation(callbackFunction:Function)	通过配置回调函数的形式，获取当前位置一次。
-watchLocation(callbackFunction:Function,timeout:Number)	geoLocation	通过配置回调函数的形式，轮询获取当前位置信息。 第二个参数设置多少毫秒后自动清除轮询，缺省为无限长，即不自动清除轮询。
+
+watchLocation(callbackFunction:Function,timeout:Number)	通过配置回调函数的形式，轮询获取当前位置信息。 第二个参数设置多少毫秒后自动清除轮询，缺省为无限长，即不自动清除轮询。
+
 clearWatchLocation()	停止轮询获取当前位置。
+
 getSpeed(callbackFunction:Function)	通过配置回调函数的形式，获取当前速度一次。 getSpeed只有在获取到了速度信息后才会回调。 与getLocation不同的是，通常获取位置（location）比获取速度（speed）要容易且节省时间，即获取速度通常会相对较慢。
+
 stopGetSpeed()	停止获取当前速度。
+
 watchSpeed(callbackFunction:Function,timeout:Number)	通过配置回调函数的形式，轮询获取当前速度信息。 第二个参数设置多少毫秒后自动清除轮询，缺省为无限长，即不自动清除轮询。
+
 clearWatchSpeed()	停止轮询获取当前速度。
+
 getHeading(callbackFunction:Function)	通过配置回调函数的形式，获取当前前进方向一次。 getHeading只有在获取到了速度信息后才会回调。 与getLocation不同的是，通常获取位置（location）比获取前进方向（heading）要容易且节省时间，即获取前进方向通常会相对较慢。
+
 stopGetHeading()	停止获取当前前进方向。
+
 watchHeading(callbackFunction:Function,timeout:Number)	通过配置回调函数的形式，轮询获取当前前进方向信息。 第二个参数设置多少毫秒后自动清除轮询，缺省为无限长，即不自动清除轮询。
+
 clearWatchHeading()	停止轮询获取当前前进方向。
+
 clearWatch()	停止所有轮询获取的方法，即停止watchLocation、watchSpeed和watchHeading。
+
 clearAll()	停止所有轮询获取的方法、获取速度的方法和获取方向的方法，即停止watchLocation、watchSpeed、watchHeading、getSpeed和getHeading。
