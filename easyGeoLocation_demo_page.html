@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html> 
+<html> 
+<head> 
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width" />
+<title>easyGeoLocation demo page</title> 
+
+<script type="text/javascript" src="easyGeoLocation.js"></script>
+
+</head> 
+<body style="margin:0;padding:0">
+	<input type="button" onclick="test('setConfig')" value="setConfig" /><br/>
+	<input type="button" onclick="test('getAvailableCode')" value="getAvailableCode" /><br/>
+	<input type="button" onclick="test('getLocation')" value="getLocation" /><br/>
+	<input type="button" onclick="test('watchLocation')" value="watchLocation" /><br/>
+	<input type="button" onclick="test('watchLocation_timeout_5s')" value="watchLocation_timeout_5s" /><br/>
+	<input type="button" onclick="test('clearWatchLocation')" value="clearWatchLocation" /><br/>
+	<input type="button" onclick="test('getSpeed')" value="getSpeed" /><br/>
+	<input type="button" onclick="test('stopGetSpeed')" value="stopGetSpeed" /><br/>
+	<input type="button" onclick="test('watchSpeed')" value="watchSpeed" /><br/>
+	<input type="button" onclick="test('clearWatchSpeed')" value="clearWatchSpeed" /><br/>
+	<input type="button" onclick="test('getHeading')" value="getHeading" /><br/>
+	<input type="button" onclick="test('stopGetHeading')" value="Heading" /><br/>
+	<input type="button" onclick="test('watchHeading')" value="watchHeading" /><br/>
+	<input type="button" onclick="test('clearWatchHeading')" value="clearWatchHeading" /><br/>
+	<input type="button" onclick="test('clearWatch')" value="clearWatch" /><br/>
+	<input type="button" onclick="test('clearAll')" value="clearAll" /><br/>
+	<div id="result" style="position:absolute;left:180px;top:0;width:300px;height:500px;border:1px solid #000;word-wrap:break-word;word-break:break-all;"></div>
+	<script type="text/javascript">
+		var result = document.getElementById('result')
+		,__showResult  = function(s){
+			result.innerHTML += (s+'<br/>');
+		}
+		,test = function(type){
+			if(type === 'setConfig'){
+				easyGeoLocation.setConfig(
+
+				);
+			}else if(type === 'getAvailableCode'){
+				easyGeoLocation.getAvailableCode(function(o){
+					__showResult(o);
+				});
+			}else if(type.indexOf('_timeout_5s')>=0){
+				easyGeoLocation[type.substr(0,type.indexOf('_timeout_5s'))](function(o){
+					__showResult('states:'+o.states+',heading:'+o.heading+',speed:'+o.speed+',location_latitude:'+o.location.point.latitude+',location_longitude:'+o.location.point.longitude);
+				},5000);
+			}else{
+				easyGeoLocation[type](function(o){
+					__showResult('states:'+o.states+',heading:'+o.heading+',speed:'+o.speed+',location_latitude:'+o.location.point.latitude+',location_longitude:'+o.location.point.longitude);
+				});
+			}
+		}
+	</script>
+</body> 
+</html>
