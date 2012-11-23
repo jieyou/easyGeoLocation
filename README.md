@@ -19,29 +19,19 @@ A library that optimizes and encapsulates native HTML5 geolocation JavaScript co
 所有的callbackFunction的第一个参数是一个geoInfo对象，它包含了本次获取的信息。需要注意的是，获取某一类型信息的回调函数的geoInfo是会包含该类信息，有可能包含其它类型的信息。如，getSpeed方法的回调函数的这个参数一定会包含speed信息，有可能会包含heading信息（如果此时也同时获得了heading信息则会包含）。这个对象的结构如下：
 
 {
-    
+	
     states:0,1,2,3 //本次结果，0:成功，1:没有权限(即用户禁止);2:无法确定位置;3:确定位置超时
-
     ,timestamp:130000000	//得到信息时的时间戳，定位失败时为null
-
     ,location:{ //位置信息，没有对应信息时为null
-
         accuracy: 1000 //位置信息精确度，单位：米
-
         ,point:{ //位置信息坐标
-
             latitude:111.1111111
-
             ,longitude:111.1111111
-
         }
-
     }
-
     ,speed:123 //速度，单位：米/秒，没有对应信息时为null
-
     ,heading:90 //前进方向，单位：距正北方向顺时针旋转的弧度，没有对应信息时为null
-
+    
 }
 
 
